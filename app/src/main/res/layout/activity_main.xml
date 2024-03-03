@@ -2,35 +2,36 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/your_root_layout_id"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/your_root_layout_id"
-    android:background="@drawable/imgg"
     android:visibility="visible"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="364dp"
-
-
-        android:text="click"
-        app:cornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:cornerRadius="10dp" />
-
-    <EditText
-        android:id="@+id/textView"
-        android:layout_width="212dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="197dp"
-        android:hint="Welcome to our story"
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="408dp"
+        android:layout_height="682dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_view"
+        android:layout_width="414dp"
+        android:layout_height="47dp"
+        android:background="#F0000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:itemActiveIndicatorStyle="@color/cardview_shadow_end_color"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/menu" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
