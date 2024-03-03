@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item android:id="@+id/search"
+    android:title="Search"
+    android:icon="@drawable/baseline_search_24"
+    app:showAsAction="always"/>
+    <item android:id="@+id/spped_dial_numbers"
+        android:title="Speed dial nubers" />
+    <item android:id="@+id/open_to_keypad"
+        android:title="Open to keypad"/>
+    <item android:id="@+id/Setting"
+        android:title="Setting"/>
+
+</menu>
