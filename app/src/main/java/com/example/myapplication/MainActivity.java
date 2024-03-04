@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -28,7 +29,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottom_nav_view;
-
+ Button bn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
     void Load(Fragment fragment,boolean b){
         FragmentManager fm=getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
