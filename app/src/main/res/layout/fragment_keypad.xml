@@ -44,13 +44,13 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.679">
+            app:layout_constraintVertical_bias="0.749">
 
             <Button
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
 
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
 
                 android:onClick="click"
 
@@ -92,9 +92,9 @@
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
 
                 android:onClick="click"
 
@@ -108,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
 
                 android:onClick="click"
 
@@ -134,9 +134,9 @@
                 android:id="@+id/button7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
 
                 android:onClick="click"
 
@@ -150,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
                 android:onClick="click"
 
                 android:text="8"
@@ -164,8 +164,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
-                android:onClick="click"
+
 
                 android:text="9"
                 android:textColor="#ffff"
@@ -175,11 +174,10 @@
                 android:id="@+id/button10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:onClick="click"
+                android:layout_marginRight="10dp"
+
 
                 android:text="*"
                 android:textColor="#ffff"
@@ -191,9 +189,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:onClick="click"
+                android:layout_marginRight="10dp"
+
 
                 android:text="0"
                 android:textColor="#ffff"
@@ -206,8 +203,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:onClick="click"
+
+
                 android:text="#"
                 android:textColor="#ffff"
                 android:textSize="30dp" />
@@ -215,32 +212,30 @@
 
         <Button
             android:id="@+id/caller_button"
-            android:onClick="click"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/caller_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.548"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gridLayout"
-            app:layout_constraintVertical_bias="0.228" />
+            app:layout_constraintVertical_bias="0.529" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="523dp"
+            android:layout_width="406dp"
+            android:layout_height="52dp"
             android:gravity="center"
-            android:text=" "
+            android:text=""
             android:textColor="#ffff"
             android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.617"
+
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:layout_constraintVertical_bias="0.785"
+            app:layout_constraintTop_toTopOf="@+id/appBarLayout"
+            app:layout_constraintVertical_bias="0.913"
             tools:ignore="NotSibling" />
 
         <Button
@@ -257,7 +252,6 @@
 
         <Button
             android:id="@+id/v_call"
-
             android:drawableLeft="@drawable/baseline_video_call_24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
