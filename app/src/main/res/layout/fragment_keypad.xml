@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,35 +11,52 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/c">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/black"
+            android:id="@+id/contact_recycler_view"
+            android:layout_width="413dp"
+            android:layout_height="656dp"
+            android:layout_marginTop="70dp"
+            android:elevation="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.105" />
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_width="409dp"
+            android:layout_height="58dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.Toolbar
-                android:background="@color/black"
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="126dp"
-                app:menu="@menu/tool_bar"
+                android:background="@color/black"
                 app:layout_constraintBottom_toTopOf="@+id/textView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:menu="@menu/tool_bar" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <GridLayout
             android:id="@+id/gridLayout"
-            android:layout_width="414dp"
+            android:elevation="2dp"
+            android:layout_width="match_parent"
             android:layout_height="352dp"
             android:columnCount="3"
             android:rowCount="4"
+            android:background="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -64,7 +82,7 @@
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
 
@@ -78,12 +96,10 @@
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-
+                android:layout_marginRight="30dp"
                 android:onClick="click"
-
                 android:text="3"
                 android:textColor="#ffff"
                 android:textSize="30dp" />
@@ -106,7 +122,7 @@
                 android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
 
@@ -120,9 +136,9 @@
                 android:id="@+id/button6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="30dp"
 
                 android:onClick="click"
 
@@ -148,7 +164,7 @@
                 android:id="@+id/button8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:onClick="click"
@@ -161,9 +177,9 @@
                 android:id="@+id/button9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="30dp"
 
 
                 android:text="9"
@@ -187,7 +203,7 @@
                 android:id="@+id/button11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
 
@@ -200,9 +216,9 @@
                 android:id="@+id/button12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="30dp"
 
 
                 android:text="#"
@@ -210,55 +226,75 @@
                 android:textSize="30dp" />
         </GridLayout>
 
-        <Button
-            android:id="@+id/caller_button"
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/caller_button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
-            app:layout_constraintVertical_bias="0.529" />
 
         <TextView
+            android:elevation="2dp"
             android:id="@+id/textView"
             android:layout_width="406dp"
             android:layout_height="52dp"
             android:gravity="center"
             android:text=""
             android:textColor="#ffff"
+            android:background="@color/black"
             android:textSize="30dp"
             app:layout_constraintBottom_toTopOf="@+id/gridLayout"
             app:layout_constraintEnd_toEndOf="parent"
 
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/appBarLayout"
-            app:layout_constraintVertical_bias="0.913"
+            app:layout_constraintVertical_bias="1.0"
             tools:ignore="NotSibling" />
-
-        <Button
-            android:id="@+id/erase"
-
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/Linear_layout_1"
+            android:elevation="2dp"
+            android:background="@color/black"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:drawableLeft="@drawable/baseline_backspace_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.589"
-            app:layout_constraintStart_toEndOf="@+id/caller_button" />
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout">
 
-        <Button
-            android:id="@+id/v_call"
-            android:drawableLeft="@drawable/baseline_video_call_24"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/caller_button"
-            app:layout_constraintHorizontal_bias="0.522"
-            app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/v_call"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:drawableLeft="@drawable/baseline_video_call_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/caller_button"
+                app:layout_constraintHorizontal_bias="0.522"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/caller_button"
+                android:layout_marginRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/caller_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+                app:layout_constraintVertical_bias="0.529" />
+            <Button
+                android:id="@+id/erase"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:drawableLeft="@drawable/baseline_backspace_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.589"
+                app:layout_constraintStart_toEndOf="@+id/caller_button" />
+
+
+
+        </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

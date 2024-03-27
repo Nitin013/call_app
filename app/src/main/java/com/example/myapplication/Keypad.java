@@ -1,23 +1,38 @@
 package com.example.myapplication;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.ButtonBarLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
+import android.provider.CallLog;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class Keypad extends Fragment {
@@ -28,16 +43,53 @@ public class Keypad extends Fragment {
     Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn10,btn11,btn12,caller_btn,back_space,v_call;
     TextView textView;
     String Number=null;
+    GridLayout gridlayout;
+    LinearLayout Linear_layout1;
+    RecyclerView Contact_recycler_view;
+    ConstraintLayout c;
+
+    ArrayList<contact_model> arrayList=new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView=inflater.inflate(R.layout.fragment_keypad, container, false);
         init(rootView);
-
-        Number=textView.getText().toString().trim();
-
+        handle_touch_event();
+        clickListener();
         setBackground();
+        readCallLogs();
+
+
+        Recycler_adapter adapter=new Recycler_adapter(getContext(),arrayList);
+        Contact_recycler_view.setLayoutManager(new LinearLayoutManager(getContext()));
+        Contact_recycler_view.setAdapter(adapter);
+        Number=textView.getText().toString().trim();
+        return  rootView;
+    }
+    private void readCallLogs() {
+        Uri callLogUri = CallLog.Calls.CONTENT_URI;
+        String[] projection = {CallLog.Calls.NUMBER, CallLog.Calls.TYPE, CallLog.Calls.DATE};
+        Cursor cursor = getContext().getContentResolver().query(callLogUri, projection, null, null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                // Retrieve information from the cursor
+                String number = cursor.getString(cursor.getColumnIndexOrThrow(CallLog.Calls.NUMBER));
+                long date = cursor.getLong(cursor.getColumnIndexOrThrow(CallLog.Calls.DATE));
+
+                int callType = cursor.getInt(cursor.getColumnIndexOrThrow(CallLog.Calls.TYPE));
+                arrayList.add(new contact_model(R.drawable.caller_button,"nitin",number));
+
+                // Do something with the call log information
+                // ...
+
+
+            } while (cursor.moveToNext());
+        }
+    }
+
+    private  void clickListener(){
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +122,7 @@ public class Keypad extends Fragment {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Number += "1";
+                Number += "4";
                 textView.setText(Number);
                 v_call.setVisibility(v.VISIBLE);
                 back_space.setVisibility(v.VISIBLE);
@@ -151,7 +203,7 @@ public class Keypad extends Fragment {
         caller_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  call_number();
+                call_number();
             }
         });
 
@@ -166,12 +218,39 @@ public class Keypad extends Fragment {
                 }
             }
         });
-        return  rootView;
+    }
+
+
+// making a touch event on gird and linear_layout1 so that whenevrt you click on these views down side view should not effected;
+    private void handle_touch_event() {
+        Contact_recycler_view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                gridlayout.setVisibility(View.GONE);
+                textView.setVisibility(View.GONE);
+                Linear_layout1.setVisibility(View.GONE);
+
+
+                return false;
+            }
+        }) ;
+           gridlayout.setOnTouchListener(new View.OnTouchListener() {
+               @Override
+               public boolean onTouch(View v, MotionEvent event) {
+                   return true;
+               }
+           });
+           Linear_layout1.setOnTouchListener(new View.OnTouchListener() {
+               @Override
+               public boolean onTouch(View v, MotionEvent event) {
+                   return true;
+               }
+           });
     }
 
     private void call_number() {
        if(Number.length()!=0) {
-           Toast.makeText(getContext(), "nitin", Toast.LENGTH_SHORT).show();
+
            if (getContext() != null && getContext().checkCallingOrSelfPermission(Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
                String phone_number = "tel:" + Number;
                Intent callIntent = new Intent(Intent.ACTION_CALL);
@@ -187,6 +266,9 @@ public class Keypad extends Fragment {
     }
 
     public void init(View rootView){
+        gridlayout=rootView.findViewById(R.id.gridLayout);
+        Linear_layout1=rootView.findViewById(R.id.Linear_layout_1);
+        Contact_recycler_view = rootView.findViewById(R.id.contact_recycler_view);
         textView=rootView.findViewById(R.id.textView);
         btn1=rootView.findViewById(R.id.button1);
         btn2=rootView.findViewById(R.id.button2);
@@ -225,6 +307,4 @@ public class Keypad extends Fragment {
         back_space.setVisibility(back_space.INVISIBLE);
 
     }
-
-
 }
